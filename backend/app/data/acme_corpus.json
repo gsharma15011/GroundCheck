@@ -1,0 +1,165 @@
+[
+  {
+    "document_id": "DOC-HR-2026",
+    "document_name": "Acme Corp 2026 Annual Leave and Benefits Policy",
+    "version": "1.0",
+    "effective_date": "2026-01-01",
+    "policy_category": "Human Resources",
+    "is_canonical": true,
+    "description": "Fictional Acme Corp official HR leave guidelines for calendar year 2026.",
+    "chunks": [
+      {
+        "chunk_id": "CHK-HR-001",
+        "section": "Section 2.1 - Paid Leave Entitlement",
+        "page": 2,
+        "line_start": 45,
+        "line_end": 52,
+        "text": "Eligible full-time employees receive 14 paid leave days per calendar year. Part-time employees receive pro-rated leave based on standard contracted hours. Leave balances refresh annually on January 1.",
+        "canonical_facts": {
+          "policy_key": "paid_leave_allowance",
+          "value": 14,
+          "unit": "days",
+          "scope": "eligible full-time employees",
+          "period": "per calendar year"
+        }
+      },
+      {
+        "chunk_id": "CHK-HR-002",
+        "section": "Section 2.3 - Leave Request and Approval",
+        "page": 3,
+        "line_start": 78,
+        "line_end": 84,
+        "text": "Annual leave requests require reporting-manager approval at least 5 business days prior to scheduled time off. Emergency personal leave must be notified to the department manager as soon as practicable.",
+        "canonical_facts": {
+          "policy_key": "leave_approval_requirement",
+          "requirement": "reporting-manager approval",
+          "advance_notice_days": 5
+        }
+      },
+      {
+        "chunk_id": "CHK-HR-003",
+        "section": "Section 3.1 - Public Holidays and Carryover",
+        "page": 4,
+        "line_start": 105,
+        "line_end": 112,
+        "text": "Public holidays follow the annual corporate calendar. Up to 5 unused leave days may carry over into the subsequent quarter, expiring on March 31 if unused.",
+        "canonical_facts": {
+          "policy_key": "leave_carryover",
+          "max_carryover_days": 5,
+          "carryover_deadline": "March 31"
+        }
+      },
+      {
+        "chunk_id": "CHK-HR-004",
+        "section": "Section 4.1 - General Benefits Scope",
+        "page": 5,
+        "line_start": 130,
+        "line_end": 138,
+        "text": "Employee benefits and statutory provisions specified herein apply exclusively to eligible full-time employees unless explicitly stated otherwise in writing. Contractors, interns, and temporary workers are subject to separate engagement schedules.",
+        "canonical_facts": {
+          "policy_key": "benefits_scope",
+          "scope": "eligible full-time employees"
+        }
+      }
+    ]
+  },
+  {
+    "document_id": "DOC-HR-2025-ARCHIVE",
+    "document_name": "Acme Corp 2025 Annual Leave Policy (Archived / Superseded)",
+    "version": "0.9",
+    "effective_date": "2025-01-01",
+    "policy_category": "Human Resources",
+    "is_canonical": false,
+    "description": "Historical 2025 leave policy retained for drift detection and version auditing simulation.",
+    "chunks": [
+      {
+        "chunk_id": "CHK-HR-ARCHIVE-001",
+        "section": "Section 2.1 - 2025 Historical Paid Leave",
+        "page": 2,
+        "line_start": 40,
+        "line_end": 48,
+        "text": "Under the previous 2025 policy, eligible full-time employees received 12 paid leave days per calendar year. This provision is superseded by the 2026 policy.",
+        "canonical_facts": {
+          "policy_key": "paid_leave_allowance",
+          "value": 12,
+          "unit": "days",
+          "scope": "eligible full-time employees",
+          "period": "per calendar year",
+          "superseded": true
+        }
+      }
+    ]
+  },
+  {
+    "document_id": "DOC-IT-2026",
+    "document_name": "Acme Corp IT Security and Access Control Policy",
+    "version": "1.0",
+    "effective_date": "2026-01-01",
+    "policy_category": "Information Technology",
+    "is_canonical": true,
+    "description": "Fictional Acme Corp mandatory information security protocols.",
+    "chunks": [
+      {
+        "chunk_id": "CHK-IT-001",
+        "section": "Section 1.2 - Approved Authentication and MFA",
+        "page": 2,
+        "line_start": 32,
+        "line_end": 40,
+        "text": "Access to corporate accounts requires approved authentication methods. Multi-Factor Authentication (MFA) is strictly mandatory for all designated sensitive systems, source repositories, and financial environments.",
+        "canonical_facts": {
+          "policy_key": "mfa_requirement",
+          "rule": "mandatory for designated sensitive systems"
+        }
+      },
+      {
+        "chunk_id": "CHK-IT-002",
+        "section": "Section 3.4 - Confidential Data Storage",
+        "page": 4,
+        "line_start": 88,
+        "line_end": 96,
+        "text": "Company confidential data must only be stored within approved encrypted storage systems. Storing corporate assets, client data, or internal documentation on unapproved personal cloud services or personal drives is strictly prohibited.",
+        "canonical_facts": {
+          "policy_key": "confidential_storage",
+          "rule": "approved encrypted storage systems only"
+        }
+      },
+      {
+        "chunk_id": "CHK-IT-003",
+        "section": "Section 5.1 - Incident Reporting Channel",
+        "page": 6,
+        "line_start": 142,
+        "line_end": 150,
+        "text": "Employees must report suspected security incidents, phishing attempts, or credential compromises through the designated internal security response channel within 1 hour of discovery.",
+        "canonical_facts": {
+          "policy_key": "incident_reporting",
+          "reporting_timeframe": "within 1 hour",
+          "channel": "designated internal security response channel"
+        }
+      }
+    ]
+  },
+  {
+    "document_id": "DOC-REMOTE-2026",
+    "document_name": "Acme Corp Hybrid and Remote Work Guidelines",
+    "version": "1.0",
+    "effective_date": "2026-01-01",
+    "policy_category": "Workplace Policy",
+    "is_canonical": true,
+    "description": "Fictional guidelines governing telework arrangements and office presence.",
+    "chunks": [
+      {
+        "chunk_id": "CHK-WRK-001",
+        "section": "Section 1.1 - Hybrid Work Arrangements",
+        "page": 1,
+        "line_start": 15,
+        "line_end": 22,
+        "text": "Eligible employees may work remotely up to 2 scheduled days per week with departmental manager agreement. Acme Corp does not offer unlimited remote work or unrestricted telecommuting without formal executive approval.",
+        "canonical_facts": {
+          "policy_key": "remote_work_entitlement",
+          "allowed_days": 2,
+          "unlimited_remote_work": false
+        }
+      }
+    ]
+  }
+]
