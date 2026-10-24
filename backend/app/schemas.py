@@ -15,7 +15,9 @@ class ClaimStatus(str, Enum):
 class EngineMode(str, Enum):
     LIVE = "LIVE"
     DEMO = "DEMO"
+    LOADING = "LOADING"
     DEGRADED = "DEGRADED"
+    ERROR = "ERROR"
 
 
 class SanitizationPolicy(str, Enum):
@@ -172,13 +174,26 @@ class MutationCaseResult(BaseModel):
     actual_status: str
     pass_fail_abstain: MutationOutcome
     evidence_ids: List[str] = Field(default_factory=list)
+    source_evidence_snippet: Optional[str] = None
     explanation: str
+    mismatch_reason: Optional[str] = None
     model_mode: str
     duration_ms: float
 
 
+class FamilyMetric(BaseModel):
+    total_cases: int = 0
+    evaluated_cases: int = 0
+    passed_cases: int = 0
+    failed_cases: int = 0
+    abstained_cases: int = 0
+    skipped_cases: int = 0
+    pass_rate: Optional[float] = None
+
+
 class MutationSuiteRequest(BaseModel):
     audit_id: Optional[str] = None
+    corpus_id: Optional[str] = "acme_corporate_policies"
     claims: Optional[List[ClaimVerificationResult]] = None
     mutation_families: Optional[List[str]] = None
     max_cases: int = Field(20, ge=1, le=50)
@@ -198,6 +213,7 @@ class MutationSuiteResponse(BaseModel):
         description="Correctly flagged applicable mutations / applicable mutations evaluated. Null if no applicable cases.",
     )
     coverage: float = Field(..., ge=0.0, le=1.0)
+    family_breakdown: Dict[str, FamilyMetric] = Field(default_factory=dict)
     mode: str
     processing_time_ms: float
 
@@ -256,11 +272,14 @@ class StatusResponse(BaseModel):
     corpus_documents_count: int = 0
     corpus_chunks_count: int = 0
     retrieval_model_ready: bool = False
+    retrieval_model_loading: bool = False
     nli_model_ready: bool = False
-    current_mode: str = "DEGRADED"  # LIVE, DEMO, DEGRADED
+    nli_model_loading: bool = False
+    current_mode: str = "DEGRADED"  # LIVE, DEMO, LOADING, DEGRADED, ERROR
     version: str = "2.0.0"
     device: str = "cpu"
     model_init_errors: List[str] = Field(default_factory=list)
+    mode_limitations: List[str] = Field(default_factory=list)
 
 
 class ErrorResponse(BaseModel):
